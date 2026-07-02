@@ -1,14 +1,4 @@
-# ReTree: Reliability-guided Tree Memory for Inductive Multimodal Knowledge Graph Completion
-
-This repository provides a PyTorch implementation template for **ReTree**, a reliability-guided tree memory framework for inductive multimodal knowledge graph completion (IMKGC). The implementation is organized according to the main components of the paper:
-
-1. **Reliability-aware Representation Learning**
-2. **Hierarchical Tree Memory with Adaptive Prototypes**
-3. **Hierarchical Tree Retrieval and Inductive Reasoning**
-
-The code is designed to make the method structure explicit. Dataset files are not included in this package. Please place the processed datasets under `data/` following the format described in `data/README.md`.
-
----
+# Beyond Modality Importance: Reliability-guided Tree Memory for Inductive Multimodal Knowledge Graph Completion
 
 ## Requirements
 
@@ -58,35 +48,6 @@ ReTree/
 ```
 
 ---
-
-## Data Preparation
-
-Create one folder for each dataset under `data/`:
-
-```text
-data/
-├── FB15K237_ind/
-├── WN18RR_ind/
-└── WN9_ind/
-```
-
-Each dataset folder should contain:
-
-```text
-entities.txt              # entity_id<TAB>entity_name
-relations.txt             # relation_id<TAB>relation_name
-train.tsv                 # head<TAB>relation<TAB>tail
-valid.tsv                 # head<TAB>relation<TAB>tail
-test.tsv                  # head<TAB>relation<TAB>tail
-entity_text.json          # entity_id -> textual description
-entity_image.npy          # entity visual feature matrix
-image_index.json          # entity_id -> row index in entity_image.npy
-```
-
-The loader also supports pre-computed text and image embeddings. See `data/README.md` for details.
-
----
-
 ## Training
 
 ```bash
@@ -135,6 +96,9 @@ bash scripts/run_wn9_ind.sh
 Ablation configurations are provided in `configs/ablations/`.
 
 ---
+## Acknowledgements
+
+We thank the authors of **CMR: Contrast then Memorize Semantic Neighbor Retrieval-Enhanced Inductive Knowledge Graph Completion** for releasing their code at https://github.com/OreOZhao/CMR. The organization of this repository and parts of the training and evaluation pipeline are developed with reference to their implementation.
 
 ## Citation
 
@@ -144,7 +108,5 @@ If this repository is useful for your research, please cite the corresponding pa
 @article{retree2026,
   title   = {Beyond Flat Retrieval: Reliability-guided Tree Memory for Inductive Multimodal Knowledge Graph Completion},
   author  = {Jingchao Wang and others},
-  journal = {Under Review},
-  year    = {2026}
 }
 ```
