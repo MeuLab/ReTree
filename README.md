@@ -15,7 +15,6 @@ Recommended dependencies:
 - `scikit-learn >= 1.0.0`
 - `tqdm`
 - `PyYAML`
-- `transformers` (optional, for PLM-based text encoding)
 
 ---
 
