@@ -1,0 +1,3 @@
+# Ablation configuration overlay
+base: ../fb15k237_ind.yaml
+memory.reliability_weighted_refinement: false

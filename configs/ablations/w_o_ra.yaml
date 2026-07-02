@@ -1,0 +1,3 @@
+# Ablation configuration overlay
+base: ../fb15k237_ind.yaml
+reliability.disable_assessment: true

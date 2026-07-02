@@ -1,0 +1,14 @@
+name: retree
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pytorch>=1.12
+  - numpy
+  - scikit-learn
+  - pyyaml
+  - tqdm
+  - pip
+  - pip:
+      - transformers>=4.20.0

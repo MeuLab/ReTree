@@ -1,0 +1,70 @@
+dataset:
+  name: WN9-ind
+  root: data/WN9_ind
+  train_file: train.tsv
+  valid_file: valid.tsv
+  test_file: test.tsv
+  entity_file: entities.txt
+  relation_file: relations.txt
+  text_file: entity_text.json
+  image_file: entity_image.npy
+  image_index_file: image_index.json
+  max_text_len: 128
+  num_workers: 4
+
+model:
+  name: ReTree
+  dim: 256
+  text_dim: 768
+  visual_dim: 2048
+  relation_dim: 256
+  dropout: 0.1
+  fusion: gated
+  scorer: bilinear
+
+reliability:
+  ema_decay: 0.995
+  calibration_queue_size: 4096
+  min_relation_queue: 32
+  global_fallback: true
+  lambda_x: 0.5
+  local_candidate_size: 64
+  alpha_min: 0.05
+  text_mask_ratio: 0.15
+  image_mask_ratio: 0.20
+
+representation:
+  tau: 0.05
+  gamma: 0.5
+  negatives: 128
+  lambda_stability: 0.5
+  lambda_neighborhood: 1.0
+  knn_size: 16
+  knn_refresh_epochs: 1
+
+memory:
+  beta_k: 0.5
+  k_max: 16
+  prototype_temperature: 0.10
+  refinement_iters: 5
+  min_entities_per_relation: 4
+  reliability_weighted_refinement: true
+
+retrieval:
+  b1: 4
+  b2: 32
+  unseen_insertion_temperature: 0.10
+  temporary_prototype_threshold: 0.40
+  final_topk: 100
+
+optimization:
+  seed: 2026
+  epochs: 100
+  batch_size: 512
+  lr: 0.0005
+  weight_decay: 0.00001
+  grad_clip: 1.0
+  device: cuda
+  save_dir: outputs/WN9_ind
+  eval_every: 5
+  early_stop_patience: 10

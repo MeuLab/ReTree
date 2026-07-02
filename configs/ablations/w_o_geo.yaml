@@ -1,0 +1,3 @@
+# Ablation configuration overlay
+base: ../fb15k237_ind.yaml
+representation.lambda_neighborhood: 0.0
